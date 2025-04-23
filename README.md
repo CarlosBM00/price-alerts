@@ -47,15 +47,7 @@ git clone https://github.com/CarlosBM00/price-alerts.git
 cd price-alerts
 ```
 
-2. **Crea tu entorno virtual**
-
-```bash
-python -m venv venv
-source venv/bin/activate     # Linux/macOS
-venv\Scriptsctivate        # Windows
-```
-
-3. **Instala las dependencias**
+2. **Instala las dependencias**
 
 ```bash
 pip install -r requirements.txt
@@ -96,6 +88,7 @@ scrape(url)
 ---
 
 ## ✉️ Notificaciones
+Las notificaciones cuando el precio es el mismo o sube están desactivadas, puedes descomentar el código si quieres recibirlas 😉
 
 Si el precio cambia, recibirás un correo como este:
 
