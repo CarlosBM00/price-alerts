@@ -7,11 +7,12 @@
 
 ## Características
 
-- Soporte para productos de **Amazon** y **Steam**, aunque gracias a la modularidad del código se pueden añadir más
+- Soporte para productos de Amazon y Steam, aunque gracias a la modularidad del código se pueden añadir más
 - Detecta **cambios de precio** y envía automáticamente **notificaciones por correo**
-- Guarda los datos en un archivo `.csv` local, sin necesidad de base de datos
-- Web scraping con `BeautifulSoup`
-- 
+- **Almacenamiento** de los datos en un archivo `.csv` local, sin necesidad de base de datos
+- **Web scraping** con `BeautifulSoup`
+- **Ejecuciones programadas** del proceso con `Schedule`
+
 ---
 
 ## Estructura del proyecto
