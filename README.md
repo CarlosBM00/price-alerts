@@ -1,21 +1,20 @@
 
-# 📦 price-alerts
+# price-alerts
 
 **price-alerts** es una herramienta de seguimiento de precios para productos de Amazon y Steam (por ahora). Te notifica por correo electrónico cuando un artículo baja o sube de precio, permitiéndote aprovechar las mejores ofertas sin tener que comprobar constantemente los precios.
 
 ---
 
-## 🚀 Características
+## Características
 
-- 🛒 Soporte para productos de **Amazon** y **Steam**
-- 📉 Detecta **cambios de precio** y guarda el historial
-- 📧 Envío automático de **notificaciones por correo**
-- 💾 Guarda los datos en un archivo `.csv` local, sin complicaciones
-- 🔍 Web scraping sencillo con `BeautifulSoup`
+- Soporte para productos de **Amazon** y **Steam**, aunque gracias a la modularidad del código se pueden añadir todos los que se quieran
+- Detecta **cambios de precio** y envía automáticamente **notificaciones por correo**
+- Guarda los datos en un archivo `.csv` local
+- Web scraping con `BeautifulSoup`
 
 ---
 
-## 📂 Estructura del proyecto
+## Estructura del proyecto
 
 ```
 price-alerts/
@@ -27,7 +26,7 @@ price-alerts/
 │       └── steam_scraper.py
 │
 ├── utils/
-│   ├── file_dao.py             # Gestión de archivos .csv
+│   ├── file_dao.py             # Gestión del archivo .csv
 │   └── notifications.py        # Envío de correos
 │
 ├── .env                       
@@ -38,7 +37,7 @@ price-alerts/
 
 ---
 
-## 🛠️ Instalación
+## Instalación
 
 1. **Clona el repositorio**
 
@@ -55,7 +54,7 @@ pip install -r requirements.txt
 
 ---
 
-## ⚙️ Configuración
+## Configuración
 
 Crea un archivo `.env` en la raíz del proyecto con las siguientes variables:
 
@@ -65,11 +64,11 @@ APP_PASSWORD=contraseña_del_correo_que_manda_emails
 CORREO_DEST=correo_destino@gmail.com
 ```
 
-> 💡 El `APP_PASSWORD` debe ser una contraseña de aplicación generada desde tu cuenta de Gmail o equivalente.
+> 💡`APP_PASSWORD` debe ser una contraseña de aplicación generada desde tu cuenta de Gmail o equivalente.
 
 ---
 
-## 🧪 Uso
+## Uso
 
 Ejecuta el script principal con la URL del producto:
 
@@ -87,7 +86,7 @@ scrape(url)
 
 ---
 
-## ✉️ Notificaciones
+## Notificaciones
 Las notificaciones cuando el precio es el mismo o sube están desactivadas, puedes descomentar el código si quieres recibirlas 😉
 
 Si el precio cambia, recibirás un correo como este:
@@ -100,13 +99,13 @@ Enlace al producto: https://www.amazon.es/dp/B0BXQ1VJSS
 
 ---
 
-## 📝 Licencia
+## Licencia
 
 MIT License. Puedes usar, modificar y compartir libremente este proyecto.
 
 ---
 
-## 🙌 Autor
+## Autor
 
 Proyecto creado por [CarlosBM00](https://github.com/CarlosBM00) (en desarrollo intermitente)
 
