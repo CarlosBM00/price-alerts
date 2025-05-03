@@ -7,10 +7,11 @@
 
 ## Características
 
-- Soporte para productos de **Amazon** y **Steam**, aunque gracias a la modularidad del código se pueden añadir todos los que se quieran
+- Soporte para productos de Amazon y Steam, aunque gracias a la modularidad del código se pueden añadir más
 - Detecta **cambios de precio** y envía automáticamente **notificaciones por correo**
-- Guarda los datos en un archivo `.csv` local
-- Web scraping con `BeautifulSoup`
+- **Almacenamiento** de los datos en un archivo `.csv` local, sin necesidad de base de datos
+- **Web scraping** con `BeautifulSoup`
+- **Ejecuciones programadas** del proceso con `Schedule`
 
 ---
 
@@ -32,8 +33,14 @@ price-alerts/
 ├── .env                       
 ├── .gitignore
 ├── requirements.txt
-└── run.py                      # Script de entrada
+├── run.py                      # Script de entrada
+└── run_scheduled_job.py        # Script de ejecución de job automático
 ```
+---
+
+## Diagrama del sistema
+
+![Diagrama del sistema](readme_sources/Class-File Diagram.jpg)
 
 ---
 
@@ -64,7 +71,7 @@ APP_PASSWORD=contraseña_del_correo_que_manda_emails
 CORREO_DEST=correo_destino@gmail.com
 ```
 
-> 💡`APP_PASSWORD` debe ser una contraseña de aplicación generada desde tu cuenta de Gmail o equivalente.
+> `APP_PASSWORD` debe ser una contraseña de aplicación generada desde tu cuenta de Gmail o equivalente.
 
 ---
 

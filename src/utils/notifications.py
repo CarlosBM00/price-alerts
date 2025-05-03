@@ -21,9 +21,10 @@ class Notification():
     def messages(self, msg_id):
         return self._dict_body[msg_id]
 
-    def enviar_correo(self, contenido, titulo=_default_title):
+    def send_email(self, content, title=_default_title):
         self._yag.send(
             to=self._correo_destino,
-            subject=titulo,
-            contents=contenido
+            subject=title,
+            contents=content
         )
+        print("Notificación enviada!")
