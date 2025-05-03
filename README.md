@@ -40,7 +40,7 @@ price-alerts/
 
 ## Diagrama del sistema
 
-![Diagrama del sistema](readme_sources/Class-File Diagram.jpg)
+![imagen](https://github.com/user-attachments/assets/62201b40-1698-440e-a187-04687c9fa68d)
 
 ---
 
