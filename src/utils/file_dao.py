@@ -6,10 +6,10 @@ from models.product import Product
 pd.set_option('display.max_columns', None)
 
 class FileDAO:
-    def __init__(self, file_path="price_checker/data/products.csv"):
+    def __init__(self, file_path="price-alerts/data/products.csv"):
         self.file_name = file_path
         self.create_file_if_not_exists()
-        self.records = pd.read_csv(self.file_name)
+        self.records = pd.read_csv(self.file_name, sep=',')
 
     def create_file_if_not_exists(self):
         if not os.path.isfile(self.file_name) or os.path.getsize(self.file_name) == 0:
@@ -71,12 +71,12 @@ class FileDAO:
 
         existing = self.records[self.records["URL"] == scraped_product.url]
 
+        self.upsert_record(scraped_product)
+        
         if existing.empty:
-            self.upsert_record(scraped_product)
             return None
 
         stored_price = int(existing["Precio_euros"].iloc[0])
-        self.upsert_record(scraped_product)
 
         if stored_price > current_price:
             return -1, stored_price, scraped_product
