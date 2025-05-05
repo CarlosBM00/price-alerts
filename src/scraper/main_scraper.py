@@ -28,7 +28,7 @@ def process_result(comparison_result: Optional[Tuple[int, float, Product]]):
         
         if comparison_result[0] == 1:
             print(f"El producto [{comparison_result[2].name}] ha SUBIDO de precio")
-            # correo.send_email(correo.messages('subida').format(product_name, product_price, comparison_result[1]))
+            # new_notification.send_email(new_notification.messages('subida').format(product_name, product_price, comparison_result[1]))
             
         elif comparison_result[0] == -1:
             print(f"El producto [{comparison_result[2].name}] ha BAJADO de precio")
