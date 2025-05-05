@@ -12,6 +12,7 @@
 - **Almacenamiento** de los datos en un archivo `.csv` local, sin necesidad de base de datos
 - **Web scraping** con `BeautifulSoup`
 - **Ejecuciones programadas** del proceso con `Schedule`
+- Pruebas de código con **pytest** y **unittest**
 
 ---
 
@@ -94,7 +95,7 @@ scrape(url)
 ---
 
 ## Notificaciones
-Las notificaciones cuando el precio es el mismo o sube están desactivadas, puedes descomentar el código si quieres recibirlas 😉
+Las notificaciones cuando el precio es el mismo o sube están desactivadas, puedes descomentar el código si quieres recibirlas
 
 Si el precio cambia, recibirás un correo como este:
 
