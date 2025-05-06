@@ -1,17 +1,17 @@
 
 # price-alerts
 
-**price-alerts** es una herramienta de seguimiento de precios para productos de Amazon y Steam (por ahora). Te notifica por correo electrónico cuando un artículo baja o sube de precio, permitiéndote aprovechar las mejores ofertas sin tener que comprobar constantemente los precios.
+**price-alerts** es una herramienta de seguimiento de precios para productos de Amazon y Steam (por ahora). Te notifica por correo electrónico cuando un artículo baja o sube de precio, permitiéndote aprovechar las mejores ofertas sin tener que comprobar constantemente los precios de todos los productos.
 
 ---
 
 ## Características
 
-- Soporte para productos de Amazon y Steam, aunque gracias a la modularidad del código se pueden añadir más
 - Detecta **cambios de precio** y envía automáticamente **notificaciones por correo**
 - **Almacenamiento** de los datos en un archivo `.csv` local, sin necesidad de base de datos
 - **Web scraping** con `BeautifulSoup`
 - **Ejecuciones programadas** del proceso con `Schedule`
+- **Pruebas de código** con `Pytest` y `Unittest`
 
 ---
 
@@ -23,6 +23,7 @@ price-alerts/
 ├── scraper/
 │   ├── main_scraper.py         # Lógica principal
 │   └── platforms/              # Scrapers específicos
+│       ├── platform_scraper.py # Abstracción común para los scrapers
 │       ├── amazon_scraper.py
 │       └── steam_scraper.py
 │
@@ -30,18 +31,17 @@ price-alerts/
 │   ├── file_dao.py             # Gestión del archivo .csv
 │   └── notifications.py        # Envío de correos
 │
+├── tests/
+│   ├── test_file_dao.py        # Tests de file_dao
+│   ├── test_notifications.py   # Tests de notifications
+│   └── test_scrapers.py        # Tests de scrapers
+│
 ├── .env                       
 ├── .gitignore
 ├── requirements.txt
 ├── run.py                      # Script de entrada
 └── run_scheduled_job.py        # Script de ejecución de job automático
 ```
----
-
-## Diagrama del sistema
-
-![imagen](https://github.com/user-attachments/assets/62201b40-1698-440e-a187-04687c9fa68d)
-
 ---
 
 ## Instalación
@@ -80,7 +80,7 @@ CORREO_DEST=correo_destino@gmail.com
 Ejecuta el script principal con la URL del producto:
 
 ```python
-# run.py
+# run.py - Ejecución manual
 
 from scraper.main_scraper import scrape
 
@@ -89,12 +89,26 @@ scrape(url)
 
 url = "https://store.steampowered.com/app/../..."
 scrape(url)
+
+# run_scheduled_job.py - Ejecución automatizada
+
+from scraper.main_scraper import update_stored_records
+from schedule import every, repeat, run_pending
+import time
+
+@repeat(every(1).day)
+def update_records_job():
+    update_stored_records()
+
+while True:
+    run_pending()
+    time.sleep(1)
 ```
 
 ---
 
 ## Notificaciones
-Las notificaciones cuando el precio es el mismo o sube están desactivadas, puedes descomentar el código si quieres recibirlas 😉
+Las notificaciones cuando el precio es el mismo o sube están desactivadas, puedes descomentar el código si quieres recibirlas. 
 
 Si el precio cambia, recibirás un correo como este:
 
@@ -114,6 +128,6 @@ MIT License. Puedes usar, modificar y compartir libremente este proyecto.
 
 ## Autor
 
-Proyecto creado por [CarlosBM00](https://github.com/CarlosBM00) (en desarrollo intermitente)
+Proyecto creado por [CarlosBM00](https://github.com/CarlosBM00)
 
 ---
