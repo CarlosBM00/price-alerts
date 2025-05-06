@@ -1,7 +1,7 @@
 
 # price-alerts
 
-**price-alerts** es una herramienta de seguimiento de precios para productos de Amazon y Steam (puedes añadir más utilizando la clase abstracta `platform_scraper.py`). Te notifica por correo electrónico cuando un artículo baja o sube de precio, permitiéndote aprovechar las mejores ofertas sin tener que comprobar constantemente los precios de todos los productos.
+**price-alerts** es una herramienta de seguimiento de precios para productos de Amazon y Steam (por ahora). Te notifica por correo electrónico cuando un artículo baja o sube de precio, permitiéndote aprovechar las mejores ofertas sin tener que comprobar constantemente los precios de todos los productos.
 
 ---
 
